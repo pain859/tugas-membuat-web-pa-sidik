@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas TJKT - Palguna SMK Insan Mandiri</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #0055ff;
+            --bg: #05080a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text: #e0e0e0;
+            --accent: #ff007a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER & ANIMASI --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #001a33 0%, #05080a 100%);
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: #fff;
+            text-shadow: 0 0 20px var(--primary);
+            min-height: 1.2em;
+        }
+
+        #typewriter::after {
+            content: "|";
+            animation: blink 0.7s infinite;
+            color: var(--primary);
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .identity-card {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--primary);
+        }
+
+        .identity-card h2 { color: var(--primary); font-size: 1.8rem; }
+        .identity-card p { letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+
+        /* --- CONTENT STYLING --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+            transition: 0.3s;
+        }
+
+        section:hover { border-color: var(--primary); box-shadow: 0 0 30px rgba(0, 212, 255, 0.1); }
+
+        h2.section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2.section-title::before {
+            content: ">_";
+            margin-right: 15px;
+            color: var(--accent);
+        }
+
+        /* --- MATERI CMD --- */
+        .cmd-window {
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .cmd-header { background: #333; padding: 10px; display: flex; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+
+        .cmd-body {
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #00ff00;
+            font-size: 0.9rem;
+        }
+
+        .cmd-body b { color: #fff; }
+
+        /* --- TABLE STYLING --- */
+        .table-container { overflow-x: auto; margin-top: 20px; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0,0,0,0.2);
+            color: #fff;
+        }
+
+        th {
+            background: var(--primary);
+            color: #000;
+            padding: 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+        tr:hover { background: rgba(0, 212, 255, 0.05); }
+
+        /* --- LISTRIK & VIRTUAL --- */
+        .grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .info-card { background: rgba(255,255,255,0.02); padding: 20px; border-left: 4px solid var(--accent); }
+        .highlight { color: var(--primary); font-weight: bold; }
+
+        footer { text-align: center; padding: 50px; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="hero-title" id="typewriter"></h1>
+        <div class="identity-card">
+            <h2>PALGUNA</h2>
+            <p>Kelas 10 TJKT | SMK Insan Mandiri</p>
+        </div>
+        <div style="margin-top: 40px; animate: bounce 2s infinite;">↓↓↓</div>
+    </header>
+
+    <div class="container">
+        
+        <section id="cmd">
+            <h2 class="section-title">Command Prompt (CMD)</h2>
+            <p>Instruksi baris perintah dasar yang wajib dikuasai oleh siswa TJKT untuk troubleshooting jaringan:</p>
+            <br>
+            <div class="cmd-window">
+                <div class="cmd-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                    <span style="font-size: 12px; color: #aaa; margin-left: 10px;">Administrator: Command Prompt</span>
+                </div>
+                <div class="cmd-body">
+                    <p><b>C:\Users\Palguna></b> ipconfig <span style="color: #888;">// Cek konfigurasi IP</span></p>
+                    <p><b>C:\Users\Palguna></b> ping 8.8.8.8 <span style="color: #888;">// Tes koneksi internet</span></p>
+                    <p><b>C:\Users\Palguna></b> tracert google.com <span style="color: #888;">// Lacak rute jaringan</span></p>
+                    <p><b>C:\Users\Palguna></b> nslookup <span style="color: #888;">// Cek DNS Server</span></p>
+                    <p><b>C:\Users\Palguna></b> netsh wlan show profiles <span style="color: #888;">// Cek profil WiFi</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">IP Address & Subnetting</h2>
+            <div class="grid-info">
+                <div class="info-card">
+                    <h3>IPv4</h3>
+                    <p>Alamat 32-bit yang dibagi menjadi 4 oktet. Digunakan untuk identitas perangkat di jaringan lokal maupun global.</p>
+                </div>
+                <div class="info-card" style="border-left-color: var(--primary);">
+                    <h3>Subnetting</h3>
+                    <p>Proses membagi jaringan besar menjadi sub-jaringan yang lebih kecil (Subnet) untuk efisiensi dan keamanan.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Voltase & Watt Perangkat</h2>
+            <p>Sebagai teknisi, kita harus menghitung beban daya agar perangkat tidak rusak (overload).</p>
+            <div class="info-card" style="margin-top: 15px; border-left-color: #ffd700;">
+                <p><span class="highlight">Voltase (V):</span> Tekanan listrik. Di Indonesia standar PLN adalah <span class="highlight">220V</span>.</p>
+                <p><span class="highlight">Watt (W):</span> Daya nyata yang digunakan perangkat. Rumus: <b>P = V x I</b> (Watt = Volt x Ampere).</p>
+                <p><i>Contoh: Laptop butuh 19V dengan arus 3.42A, maka dayanya ±65 Watt.</i></p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Aplikasi Virtualisasi</h2>
+            <p>Digunakan untuk simulasi OS atau server tanpa memerlukan hardware tambahan:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><b class="highlight">VirtualBox:</b> Gratis dan paling umum digunakan sekolah.</li>
+                <li><b class="highlight">VMware Workstation:</b> Standar industri profesional.</li>
+                <li><b class="highlight">Cisco Packet Tracer:</b> Virtualisasi simulasi jaringan Cisco.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Tabel Profesi & Peluang Kerja</h2>
+            <div class="table-container">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Jenis Profesi</th>
+                            <th>Deskripsi</th>
+                            <th>Contoh Pekerjaan</th>
+                            <th>Peluang Usaha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Konten Creator</td><td>Membuat dan mengelola konten digital untuk media online</td><td>YouTuber, TikToker, Blogger, Streamer</td><td>jasa pembuatan konten, monetisasi YouTube, endorsement</td></tr>
+                        <tr><td>2</td><td>Desain Grafis</td><td>Mendesain visual untuk kebutuhan promosi dan branding</td><td>Desainer logo, poster, banner</td><td>Jasa desain logo, Poster, branding UMKM</td></tr>
+                        <tr><td>3</td><td>Desain UI/UX</td><td>Mendesain tampilan dan pengalaman pengguna aplikasi atau website</td><td>UI Desainer, UX Desainer, Reseacher</td><td>Jasa desain aplikasi atau website</td></tr>
+                        <tr><td>4</td><td>Pengembangan Software</td><td>Mengembangkan perangkat lunak sesuai kebutuhan</td><td>Software engineer, programer</td><td>Jasa pembuatan software custom</td></tr>
+                        <tr><td>5</td><td>Pengembangan Web</td><td>Membuat dan mengelola website</td><td>Web developer, Front-End/Back-end developer</td><td>jasa pembuatan website, web company profile</td></tr>
+                        <tr><td>6</td><td>Pengembangan Aplikasi Mobile</td><td>membuat aplikasi berbasis Android/iOS</td><td>Mobile app developer</td><td>jasa pembuatan aplikasi mobile</td></tr>
+                        <tr><td>7</td><td>Pengembangan Game</td><td>Membuat game digital untuk hiburan atau edukasi</td><td>Game developer, Game designer</td><td>Pembuatan dan penjualan game</td></tr>
+                        <tr><td>8</td><td>Internet Marketer</td><td>Melakukan pemasaran produk melalui internet</td><td>Digital marketer, Sosial media spesialis</td><td>Jasa iklan online, Manajemen media sosial</td></tr>
+                        <tr><td>9</td><td>Analisis Basis Data</td><td>Mengelola dan menganalisis data untuk pengambilan keputusan</td><td>Data analis, Data administrator</td><td>Jasa pengolahan data dan analisis data</td></tr>
+                        <tr><td>10</td><td>Konsultan SEO</td><td>mengoptimalkan website agar mudah ditemukan di mesin pencarian</td><td>SEO Specialist</td><td>Jasa optimasi SEO website</td></tr>
+                        <tr><td>11</td><td>Konsultan TI</td><td>Memberi solusi dan saran terkait teknologi informasi</td><td>IT Consultant</td><td>Jasa konsultan sistem TI</td></tr>
+                        <tr><td>12</td><td>Konsultan Keamanan Jaringan</td><td>Menjaga dan meningkatkan keamanan jaringan</td><td>Network security engineer</td><td>Jasa audit dan keamanan jaringan</td></tr>
+                        <tr><td>13</td><td>Pembisnis E-commerce</td><td>Menjalankan bisnis jual beli secara online</td><td>Owner online shop, Seller marketplace</td><td>Toko online, Dropshipping</td></tr>
+                        <tr><td>14</td><td>Proyek startup</td><td>Mengembangkan usaha berbasis teknologi dan inovasi</td><td>founder startup</td><td>mendirikan perusahaan rintisan berbasis TI</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Palguna - TJKT SMK Insan Mandiri</p>
+        <p>Built with ❤️ for Technical Education</p>
+    </footer>
+
+    <script>
+        // Efek Mengetik
+        const text = "Materi TJKT & Masa Depan IT";
+        let i = 0;
+        const speed = 100;
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        window.onload = typeWriter;
+    </script>
+
+</body>
+</html>
